@@ -1,1 +1,9 @@
-<p>news-feed works!</p>
+<div>
+  <ul>
+    <li *ngFor="let pon of newsService.news">
+      <span>{{pon.date}}  {{pon.username}}</span>
+      <br/>
+      <span>{{pon.message}}</span>
+    </li>
+  </ul>
+</div>
