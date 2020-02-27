@@ -13,9 +13,15 @@ export class NewsFeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.newsService.fetchNews()
-      .subscribe(() => {
+      .subscribe(data => {
         this.loading = false;
+        /*
         console.log(this.newsService.news);
+        or just:
+        console.log(data);
+        */
+      }, error => {
+        console.log(error)
       });
   }
 
