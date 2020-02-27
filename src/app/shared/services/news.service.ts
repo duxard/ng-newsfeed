@@ -13,7 +13,7 @@ export class NewsService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }
+  };
 
   constructor(private httpWorker: HttpClient) {}
 
@@ -37,7 +37,7 @@ export class NewsService {
 
   errorHandl(error) {
      let errorMessage = '';
-     if(error.error instanceof ErrorEvent) {
+     if (error.error instanceof ErrorEvent) {
        // Get client-side error
        errorMessage = error.error.message;
      } else {
