@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsService } from '../shared/services/news.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-message-form',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddMessageFormComponent implements OnInit {
 
-  constructor() { }
+  public addNewsForm = new FormGroup({
+    userName: new FormControl(''),
+    newsMessage: new FormControl('')
+  });
+
+  constructor(
+    public newsService: NewsService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  submitForm() {
+    console.warn( this.addNewsForm.value );
+
+    this.addNewsForm.patchValue({
+      userName: '',
+      newsMessage: ''
+    });
+  }
 }

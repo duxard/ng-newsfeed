@@ -6,7 +6,7 @@ import { tap, retry, catchError, timeout } from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class NewsService {
-  
+
   public news: INews[] = [];
   private apiBase = 'https://asta-web-1.herokuapp.com/api/newsfeed';
   private httpOptions = {
@@ -23,6 +23,14 @@ export class NewsService {
         timeout(5000),
         retry(1),
         tap(fetchedNews => this.news = fetchedNews),
+        catchError(this.errorHandl)
+      );
+  }
+
+  createNews(data): Observable<INews> {
+    return this.httpWorker.post<INews>(this.apiBase, JSON.stringify(data), this.httpOptions)
+      .pipe(
+        retry(1),
         catchError(this.errorHandl)
       );
   }
