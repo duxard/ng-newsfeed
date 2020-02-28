@@ -26,11 +26,11 @@ export class AddMessageFormComponent implements OnInit {
   submitForm() {
     // How to get control value:
     // console.log( this.addNewsForm.get('userName').value );
-    let dataToSend = {
+    const dataToSend = {
       ...this.addNewsForm.value,
-      rating: Math.floor(Math.random()*5),
+      rating: Math.floor(Math.random() * 5),
       date: new Date()
-    }
+    };
 
     this.newsService.createNews(dataToSend).subscribe(res => {
       console.log('News created!');
