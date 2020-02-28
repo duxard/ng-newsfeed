@@ -3,6 +3,6 @@
   <form [formGroup]="addNewsForm" (ngSubmit)="submitForm()" novalidate>
     <input type="text" formControlName="userName" maxlength="20" required/>
     <textarea formControlName="newsMessage" rows="8" cols="80" required></textarea>
-    <input type="submit" />
+    <input type="submit" [disabled]="addNewsForm.invalid" />
   </form>
 </div>
