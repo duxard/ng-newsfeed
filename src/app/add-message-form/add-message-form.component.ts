@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../shared/services/news.service';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 @Component({
@@ -23,8 +23,19 @@ export class AddMessageFormComponent implements OnInit {
   }
 
   submitForm() {
-    console.warn( this.addNewsForm.value );
-    console.log( this.addNewsForm.status );
+    // How to get control value:
+    // console.log( this.addNewsForm.get('userName').value );
+    let dataToSend = {
+      ...this.addNewsForm.value,
+      rating: Math.floor(Math.random()*5),
+      date: new Date()
+    }
+
+    this.newsService.createNews(dataToSend).subscribe(res => {
+      console.log('News created!');
+    }, error => {
+      console.log(error);
+    });
 
     this.addNewsForm.patchValue({
       userName: '',
