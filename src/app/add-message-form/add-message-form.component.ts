@@ -22,6 +22,7 @@ export class AddMessageFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // TODO: update data on submit
   submitForm() {
     // How to get control value:
     // console.log( this.addNewsForm.get('userName').value );

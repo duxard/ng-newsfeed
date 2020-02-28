@@ -1,8 +1,20 @@
-<!-- TODO: add associated labels -->
+<!-- TODO:
+
+1) styles + remove <br> tags
+2) validation (empty fields check)
+3) introduce field's length limitation?
+
+ -->
 <div>
   <form [formGroup]="addNewsForm" (ngSubmit)="submitForm()" novalidate>
-    <input type="text" formControlName="userName" maxlength="20" required/>
-    <textarea formControlName="newsMessage" rows="8" cols="80" required></textarea>
+    <label for="username">Username</label>
+    <br/>
+    <input type="text" formControlName="userName" maxlength="20" id="username" required/>
+    <br/>
+    <label for="message">Comment: </label>
+    <br/>
+    <textarea formControlName="newsMessage" rows="8" cols="80" id="message" required></textarea>
+    <br/>
     <input type="submit" [disabled]="addNewsForm.invalid" />
   </form>
 </div>
