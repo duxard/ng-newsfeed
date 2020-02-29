@@ -11,8 +11,8 @@ import { Validators } from '@angular/forms';
 export class AddMessageFormComponent implements OnInit {
 
   public addNewsForm = this.fb.group({
-    userName: ['', Validators.required],
-    newsMessage: ['', Validators.required]
+    username: ['', Validators.required],
+    message: ['', Validators.required]
   });
   constructor(
     public newsService: NewsService,
@@ -39,8 +39,8 @@ export class AddMessageFormComponent implements OnInit {
     });
 
     this.addNewsForm.patchValue({
-      userName: '',
-      newsMessage: ''
+      username: '',
+      message: ''
     });
   }
 }
