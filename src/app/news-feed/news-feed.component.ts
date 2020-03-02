@@ -26,4 +26,8 @@ export class NewsFeedComponent implements OnInit {
       });
   }
 
+  getRatingArray(rating: number) {
+   return Array.from({length: rating}, (e, i) => i);
+  }
+
 }

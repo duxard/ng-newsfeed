@@ -26,6 +26,7 @@ export class AddMessageFormComponent implements OnInit {
   submitForm() {
     // How to get control value:
     // console.log( this.addNewsForm.get('userName').value );
+    // TODO: get rid of zero rating
     const dataToSend = {
       ...this.addNewsForm.value,
       rating: Math.floor(Math.random() * 5),
