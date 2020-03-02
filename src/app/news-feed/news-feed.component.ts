@@ -15,6 +15,7 @@ export class NewsFeedComponent implements OnInit {
     this.newsService.fetchNews()
       .subscribe(data => {
         this.loading = false;
+        console.log(data);
         /*
         console.log(this.newsService.news);
         or just:

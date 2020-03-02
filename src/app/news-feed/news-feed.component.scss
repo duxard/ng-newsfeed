@@ -1,0 +1,103 @@
+#wrapper {
+  padding: 5px;
+}
+
+.box {
+  padding: 10px;
+}
+
+@media all and (min-width: 320px) {
+  #profile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  #message {
+    background: #c6a724;
+    position: relative;
+    hr {
+      display: none;
+    }
+  }
+
+  #profile-avatar {
+    max-width: 80px;
+    max-height: 80px;
+      /*max-width: 110px;*/
+      /*max-height: 140px;*/
+/*                margin: auto;*/
+    img {
+      height:80px;
+      width:80px;
+    }
+  }
+
+  #profile-username {
+    margin-left: 10px;
+  }
+
+  #profile-rating {
+    margin-left: auto;
+    margin-top: 8px;
+  }
+
+  #profile-date {
+    display: none;
+  }
+
+  #message-date {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+  }
+}
+
+@media all and (min-width: 768px) {
+  #wrapper {
+    display: flex;
+  }
+
+  #profile {
+    flex: 1;
+    display: block;
+  }
+
+  #message {
+    flex: 4;
+    position: static;
+    hr {
+      display: block;
+    }
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  #profile-avatar {
+      max-width: 200px;
+      max-height: 200px;
+      /*max-width: 110px;*/
+      /*max-height: 140px;*/
+      margin: auto;
+    img {
+      display: inline-block;
+      height:100%;
+      width:100%;
+    }
+  }
+
+  #profile-rating {
+    text-align: center;
+    margin-top: 0;
+  }
+
+  #profile-date {
+      display: none;
+  }
+
+  #message-date {
+      position: static;
+  }
+}
