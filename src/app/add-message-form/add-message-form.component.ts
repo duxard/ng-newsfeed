@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../shared/services/news.service';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { NoWhitespaces } from '../shared/validators/nowhitespaces.validator';
 
 @Component({
   selector: 'app-add-message-form',
@@ -11,9 +12,10 @@ import { Validators } from '@angular/forms';
 export class AddMessageFormComponent implements OnInit {
 
   public addNewsForm = this.fb.group({
-    username: ['', Validators.required],
-    message: ['', Validators.required]
+    username: ['', [Validators.required, Validators.minLength(4), NoWhitespaces]],
+    message: ['', [Validators.required, NoWhitespaces]]
   });
+  
   constructor(
     public newsService: NewsService,
     private fb: FormBuilder
