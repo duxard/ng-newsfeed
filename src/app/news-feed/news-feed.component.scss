@@ -1,3 +1,23 @@
+$base-color: #F7F7F7;
+$border-color: #D4D4D4;
+$star-color: #337AB7;
+
+.wrapper {
+  margin: 16px;
+  padding: 5px;
+  background-color: $base-color;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+
+  .glyphicon-star {
+    color: $star-color;
+  }
+}
+
+.box {
+  padding: 10px;
+}
+
 .no-margin-and-padding {
   margin: 0;
   padding: 0;
@@ -7,12 +27,10 @@ ul.no-margin-and-padding {
   list-style-type: none;
 }
 
-.wrapper {
-  padding: 5px;
-}
-
-.box {
-  padding: 10px;
+hr {
+  display: block;
+  text-align: center;
+  border-top: 1px solid $border-color;
 }
 
 @media all and (min-width: 320px) {
@@ -23,19 +41,15 @@ ul.no-margin-and-padding {
   }
 
   .message {
-    background: #c6a724;
     position: relative;
-    hr {
-      display: none;
-    }
   }
 
   .profile-avatar {
     max-width: 80px;
     max-height: 80px;
-      /*max-width: 110px;*/
-      /*max-height: 140px;*/
-/*                margin: auto;*/
+    //max-width: 110px;
+    //max-height: 140px;
+    //margin: auto;
     img {
       height:80px;
       width:80px;
@@ -59,6 +73,7 @@ ul.no-margin-and-padding {
     position: absolute;
     bottom: 2px;
     right: 2px;
+    font-style: italic;
   }
 }
 
@@ -70,18 +85,12 @@ ul.no-margin-and-padding {
   .profile {
     flex: 1;
     display: block;
+    text-align: center;
   }
 
   .message {
     flex: 4;
     position: static;
-    hr {
-      display: block;
-    }
-  }
-
-  h3 {
-    text-align: center;
   }
 
   .profile-avatar {
@@ -97,16 +106,21 @@ ul.no-margin-and-padding {
     }
   }
 
+  .profile-username {
+    margin-left: 0;
+  }
+
   .profile-rating {
     text-align: center;
     margin-top: 0;
   }
 
   .profile-date {
-      display: none;
+    display: none;
   }
 
   .message-date {
-      position: static;
+    position: static;
+    font-style: normal;
   }
 }

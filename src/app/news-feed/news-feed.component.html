@@ -8,24 +8,21 @@
             <img src="../../assets/images/user-icon.png" alt="avatar" />
           </div>
           <div class="profile-username">
-            <h3>{{pon.username}}</h3>
+            <h4>{{ pon.username }}</h4>
           </div>
           <div class="profile-rating">
-            <span class="glyphicon glyphicon-star"
-                  style="color:blue"
-                  *ngFor="let i of this.getRatingArray(pon.rating)">
-            </span>
+            <span class="glyphicon glyphicon-star" *ngFor="let i of this.getRatingArray(pon.rating)"></span>
           </div>
-          <div class="profile-date">{{pon.date}}</div>
+          <div class="profile-date">{{ pon.date | date }}</div>
         </div>
 
         <div class="message box">
           <div class="message-date">
-            <span>{{pon.date}}</span>
+            <span>{{ pon.date | date }}</span>
           </div>
           <hr/>
           <div>
-            <p>{{pon.message}}</p>
+            <p>{{ pon.message }}</p>
           </div>
         </div>
 
