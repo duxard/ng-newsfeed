@@ -7,7 +7,7 @@ ul.no-margin-and-padding {
   list-style-type: none;
 }
 
-#wrapper {
+.wrapper {
   padding: 5px;
 }
 
@@ -16,13 +16,13 @@ ul.no-margin-and-padding {
 }
 
 @media all and (min-width: 320px) {
-  #profile {
+  .profile {
     display: flex;
     justify-content: flex-start;
     align-items: center;
   }
 
-  #message {
+  .message {
     background: #c6a724;
     position: relative;
     hr {
@@ -30,7 +30,7 @@ ul.no-margin-and-padding {
     }
   }
 
-  #profile-avatar {
+  .profile-avatar {
     max-width: 80px;
     max-height: 80px;
       /*max-width: 110px;*/
@@ -42,20 +42,20 @@ ul.no-margin-and-padding {
     }
   }
 
-  #profile-username {
+  .profile-username {
     margin-left: 10px;
   }
 
-  #profile-rating {
+  .profile-rating {
     margin-left: auto;
     margin-top: 8px;
   }
 
-  #profile-date {
+  .profile-date {
     display: none;
   }
 
-  #message-date {
+  .message-date {
     position: absolute;
     bottom: 2px;
     right: 2px;
@@ -63,16 +63,16 @@ ul.no-margin-and-padding {
 }
 
 @media all and (min-width: 768px) {
-  #wrapper {
+  .wrapper {
     display: flex;
   }
 
-  #profile {
+  .profile {
     flex: 1;
     display: block;
   }
 
-  #message {
+  .message {
     flex: 4;
     position: static;
     hr {
@@ -84,7 +84,7 @@ ul.no-margin-and-padding {
     text-align: center;
   }
 
-  #profile-avatar {
+  .profile-avatar {
       max-width: 200px;
       max-height: 200px;
       /*max-width: 110px;*/
@@ -97,16 +97,16 @@ ul.no-margin-and-padding {
     }
   }
 
-  #profile-rating {
+  .profile-rating {
     text-align: center;
     margin-top: 0;
   }
 
-  #profile-date {
+  .profile-date {
       display: none;
   }
 
-  #message-date {
+  .message-date {
       position: static;
   }
 }

@@ -1,26 +1,26 @@
 <div>
   <ul class="no-margin-and-padding">
     <li *ngFor="let pon of newsService.news">
-      <div id="wrapper">
+      <div class="wrapper">
 
-        <div id="profile" class="box">
-          <div id="profile-avatar">
+        <div class="profile box">
+          <div class="profile-avatar">
             <img src="../../assets/images/user-icon.png" alt="avatar" />
           </div>
-          <div id="profile-username">
+          <div class="profile-username">
             <h3>{{pon.username}}</h3>
           </div>
-          <div id="profile-rating">
+          <div class="profile-rating">
             <span class="glyphicon glyphicon-star"
                   style="color:blue"
                   *ngFor="let i of this.getRatingArray(pon.rating)">
             </span>
           </div>
-          <div id="profile-date">{{pon.date}}</div>
+          <div class="profile-date">{{pon.date}}</div>
         </div>
 
-        <div id="message" class="box">
-          <div id="message-date">
+        <div class="message box">
+          <div class="message-date">
             <span>{{pon.date}}</span>
           </div>
           <hr/>
