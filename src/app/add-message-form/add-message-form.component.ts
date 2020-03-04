@@ -15,7 +15,7 @@ export class AddMessageFormComponent implements OnInit {
     username: ['', [Validators.required, Validators.minLength(4), NoWhitespaces]],
     message: ['', [Validators.required, NoWhitespaces]]
   });
-  
+
   constructor(
     public newsService: NewsService,
     private fb: FormBuilder
@@ -24,14 +24,18 @@ export class AddMessageFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getRandomRating() {
+    const rating = Math.floor(Math.random() * 5);
+    return rating === 0 ? 1 : rating;
+  }
+
   // TODO: update data on submit
   submitForm() {
     // How to get control value:
     // console.log( this.addNewsForm.get('userName').value );
-    // TODO: get rid of zero rating
     const dataToSend = {
       ...this.addNewsForm.value,
-      rating: Math.floor(Math.random() * 5),
+      rating: this.getRandomRating(),
       date: new Date()
     };
 
