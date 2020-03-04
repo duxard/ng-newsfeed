@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../shared/services/news.service';
+import { UpdatenewsService } from '../shared/services/updatenews.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-news-feed',
@@ -7,11 +9,24 @@ import { NewsService } from '../shared/services/news.service';
   styleUrls: ['./news-feed.component.scss']
 })
 export class NewsFeedComponent implements OnInit {
-  public loading = true;
 
-  constructor(public newsService: NewsService) { }
+  public loading = true;
+  private clickEventsubscription: Subscription;
+
+  constructor(
+    public newsService: NewsService,
+    private updatenewsService: UpdatenewsService
+  ) {
+      this.clickEventsubscription = this.updatenewsService.getUpdateNewsEvent().subscribe(() => {
+        this.uploadNews();
+      });
+  }
 
   ngOnInit(): void {
+    this.uploadNews();
+  }
+
+  uploadNews() {
     this.newsService.fetchNews()
       .subscribe(data => {
         this.loading = false;
@@ -29,5 +44,4 @@ export class NewsFeedComponent implements OnInit {
   getRatingArray(rating: number) {
    return Array.from({length: rating}, (e, i) => i);
   }
-
 }

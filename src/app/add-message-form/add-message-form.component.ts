@@ -3,6 +3,7 @@ import { NewsService } from '../shared/services/news.service';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { NoWhitespaces } from '../shared/validators/nowhitespaces.validator';
+import { UpdatenewsService } from '../shared/services/updatenews.service';
 
 @Component({
   selector: 'app-add-message-form',
@@ -18,7 +19,8 @@ export class AddMessageFormComponent implements OnInit {
 
   constructor(
     public newsService: NewsService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private updatenewsService: UpdatenewsService
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +31,6 @@ export class AddMessageFormComponent implements OnInit {
     return rating === 0 ? 1 : rating;
   }
 
-  // TODO: update data on submit
   submitForm() {
     // How to get control value:
     // console.log( this.addNewsForm.get('userName').value );
@@ -41,6 +42,7 @@ export class AddMessageFormComponent implements OnInit {
 
     this.newsService.createNews(dataToSend).subscribe(res => {
       console.log('News created!');
+      this.updatenewsService.sendUpdateNewsEvent();
     }, error => {
       console.log(error);
     });
