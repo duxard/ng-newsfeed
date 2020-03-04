@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { AddMessageFormComponent } from './add-message-form/add-message-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NewsFeedSpinnerComponent } from './news-feed-spinner/news-feed-spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsFeedComponent,
-    AddMessageFormComponent
+    AddMessageFormComponent,
+    NewsFeedSpinnerComponent
   ],
   imports: [
     BrowserModule,
