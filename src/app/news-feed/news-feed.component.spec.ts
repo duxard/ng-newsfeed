@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NewsService } from '../shared/services/news.service';
 
 import { NewsFeedComponent } from './news-feed.component';
 
@@ -8,7 +10,9 @@ describe('NewsFeedComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsFeedComponent ]
+      declarations: [ NewsFeedComponent ],
+      imports: [ HttpClientTestingModule ],
+      providers: [ NewsService ]
     })
     .compileComponents();
   }));
@@ -19,7 +23,7 @@ describe('NewsFeedComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create NewsFeedComponent', () => {
     expect(component).toBeTruthy();
   });
 });
