@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class NewsFeedComponent implements OnInit {
 
   public loading = true;
+  public showError = false;
   private clickEventsubscription: Subscription;
 
   constructor(
@@ -37,6 +38,8 @@ export class NewsFeedComponent implements OnInit {
         console.log(data);
         */
       }, error => {
+        this.showError = true;
+        this.loading = false;
         console.log(error);
       });
   }

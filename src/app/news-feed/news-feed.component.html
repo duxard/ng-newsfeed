@@ -1,3 +1,9 @@
+<app-news-feed-spinner *ngIf="loading"></app-news-feed-spinner>
+
+<div class="error-message" *ngIf="showError">
+  <p>Something went wrong. Check out console output</p>
+</div>
+
 <div>
   <ul class="no-margin-and-padding">
     <li *ngFor="let pon of newsService.news">
