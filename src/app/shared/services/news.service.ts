@@ -8,7 +8,7 @@ import { tap, retry, catchError, timeout } from 'rxjs/operators';
 export class NewsService {
 
   public news: INews[] = [];
-  private apiBase = 'https://asta-web-1.herokuapp.com/api/newsfeed';
+  public apiBase = 'https://asta-web-1.herokuapp.com/api/newsfeed';
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
