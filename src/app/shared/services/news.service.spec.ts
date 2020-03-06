@@ -47,4 +47,21 @@ describe('NewsSevice', () => {
     expect(request.request.method).toBe('GET');
     request.flush(dummyNews);
   });
+
+  it(`should post data to REST endpoint`, () => {
+    const dummyNews: INews = {
+      "username": "dummyName",
+      "message": "lorem ipsum",
+      "rating": 1,
+      "date": new Date()
+    }
+
+    newsService.createNews(dummyNews).subscribe(dataReceived => {
+      expect(dataReceived.username).toEqual('dummyName');
+    });
+
+    const request = httpMock.expectOne(`${newsService.apiBase}`);
+    expect(request.request.method).toBe('POST');
+    request.flush(dummyNews);
+  });
 });
