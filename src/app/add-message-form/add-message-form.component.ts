@@ -12,7 +12,7 @@ import { UpdatenewsService } from '../shared/services/updatenews.service';
 })
 export class AddMessageFormComponent implements OnInit {
 
-  public addNewsForm = this.fb.group({
+  addNewsForm = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(4), NoWhitespaces]],
     message: ['', [Validators.required, NoWhitespaces]]
   });
@@ -26,12 +26,12 @@ export class AddMessageFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getRandomRating() {
+  getRandomRating(): number {
     const rating = Math.floor(Math.random() * 5);
     return rating === 0 ? 1 : rating;
   }
 
-  submitForm() {
+  submitForm(): void {
     // How to get control value:
     // console.log( this.addNewsForm.get('userName').value );
     const dataToSend = {

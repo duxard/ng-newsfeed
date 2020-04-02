@@ -10,8 +10,8 @@ import { Subscription } from 'rxjs';
 })
 export class NewsFeedComponent implements OnInit {
 
-  public loading = true;
-  public showError = false;
+  loading = true;
+  showError = false;
   private clickEventsubscription: Subscription;
 
   constructor(
@@ -27,7 +27,7 @@ export class NewsFeedComponent implements OnInit {
     this.uploadNews();
   }
 
-  uploadNews() {
+  uploadNews(): void {
     this.newsService.fetchNews()
       .subscribe(data => {
         this.loading = false;
@@ -44,7 +44,7 @@ export class NewsFeedComponent implements OnInit {
       });
   }
 
-  getRatingArray(rating: number) {
+  getRatingArray(rating: number): number[] {
    return Array.from({length: rating}, (e, i) => i);
   }
 }
