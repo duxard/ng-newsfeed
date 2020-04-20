@@ -2,7 +2,16 @@ $base-color: #F7F7F7;
 $border-color: #D4D4D4;
 $star-color: #337AB7;
 
-.wrapper {
+.main {
+  margin: 0;
+  padding: 0;
+}
+
+ul.main {
+  list-style-type: none;
+}
+
+.main-wrapper {
   margin: 16px;
   padding: 5px;
   background-color: $base-color;
@@ -14,21 +23,12 @@ $star-color: #337AB7;
   }
 }
 
-.box {
+.mPadding {
   padding: 10px;
 }
 
-.error-message{
+.error-message {
   margin-left: 16px;
-}
-
-.no-margin-and-padding {
-  margin: 0;
-  padding: 0;
-}
-
-ul.no-margin-and-padding {
-  list-style-type: none;
 }
 
 hr {
@@ -38,17 +38,13 @@ hr {
 }
 
 @media all and (min-width: 320px) {
-  .profile {
+  .main-wrapper-profile {
     display: flex;
     justify-content: flex-start;
     align-items: center;
   }
 
-  .message {
-    position: relative;
-  }
-
-  .profile-avatar {
+  .main-wrapper-profile-avatar {
     max-width: 80px;
     max-height: 80px;
     //max-width: 110px;
@@ -60,20 +56,24 @@ hr {
     }
   }
 
-  .profile-username {
+  .main-wrapper-profile-username {
     margin-left: 10px;
   }
 
-  .profile-rating {
+  .main-wrapper-profile-rating {
     margin-left: auto;
     margin-top: 8px;
   }
 
-  .profile-date {
+  .main-wrapper-profile-date {
     display: none;
   }
 
-  .message-date {
+  .main-wrapper-message {
+    position: relative;
+  }
+
+  .main-wrapper-message-date {
     position: absolute;
     bottom: 2px;
     right: 2px;
@@ -82,22 +82,17 @@ hr {
 }
 
 @media all and (min-width: 768px) {
-  .wrapper {
+  .main-wrapper {
     display: flex;
   }
 
-  .profile {
+  .main-wrapper-profile {
     flex: 1;
     display: block;
     text-align: center;
   }
 
-  .message {
-    flex: 4;
-    position: static;
-  }
-
-  .profile-avatar {
+  .main-wrapper-profile-avatar {
       max-width: 200px;
       max-height: 200px;
       /*max-width: 110px;*/
@@ -110,20 +105,25 @@ hr {
     }
   }
 
-  .profile-username {
+  .main-wrapper-profile-username {
     margin-left: 0;
   }
 
-  .profile-rating {
+  .main-wrapper-profile-rating {
     text-align: center;
     margin-top: 0;
   }
 
-  .profile-date {
+  .main-wrapper-profile-date {
     display: none;
   }
 
-  .message-date {
+  .main-wrapper-message {
+    flex: 4;
+    position: static;
+  }
+
+  .main-wrapper-message-date {
     position: static;
     font-style: normal;
   }

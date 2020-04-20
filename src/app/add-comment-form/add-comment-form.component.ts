@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../shared/services/news.service';
+import { CommentService } from '../shared/services/comment.service';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { NoWhitespaces } from '../shared/validators/nowhitespaces.validator';
-import { UpdatenewsService } from '../shared/services/updatenews.service';
+import { UpdateCommentsService } from '../shared/services/update-comments.service';
 
 @Component({
-  selector: 'app-add-message-form',
-  templateUrl: './add-message-form.component.html',
-  styleUrls: ['./add-message-form.component.scss']
+  selector: 'app-add-comment-form',
+  templateUrl: './add-comment-form.component.html',
+  styleUrls: ['./add-comment-form.component.scss']
 })
-export class AddMessageFormComponent implements OnInit {
+export class AddCommentFormComponent implements OnInit {
 
-  addNewsForm = this.fb.group({
+  public addCommentForm = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(4), NoWhitespaces]],
     message: ['', [Validators.required, NoWhitespaces]]
   });
 
   constructor(
-    public newsService: NewsService,
+    public commentsService: CommentService,
     private fb: FormBuilder,
-    private updatenewsService: UpdatenewsService
+    private _updateCommentsService: UpdateCommentsService
   ) { }
 
   ngOnInit(): void {
@@ -35,19 +35,19 @@ export class AddMessageFormComponent implements OnInit {
     // How to get control value:
     // console.log( this.addNewsForm.get('userName').value );
     const dataToSend = {
-      ...this.addNewsForm.value,
+      ...this.addCommentForm.value,
       rating: this.getRandomRating(),
       date: new Date()
     };
 
-    this.newsService.createNews(dataToSend).subscribe(res => {
-      console.log('News created!');
-      this.updatenewsService.sendUpdateNewsEvent();
+    this.commentsService.createComment(dataToSend).subscribe(() => {
+      console.log('Comment added');
+      this._updateCommentsService.sendUpdateCommentsEvent();
     }, error => {
       console.log(error);
     });
 
-    this.addNewsForm.patchValue({
+    this.addCommentForm.patchValue({
       username: '',
       message: ''
     });

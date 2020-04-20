@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
-export class UpdatenewsService {
+export class UpdateCommentsService {
 
   private subject = new Subject<any>();
 
-  sendUpdateNewsEvent() {
+  sendUpdateCommentsEvent(): void {
     this.subject.next();
   }
 
-  getUpdateNewsEvent(): Observable<any> {
+  getUpdateCommentsEvent(): Observable<any> {
     return this.subject.asObservable();
   }
 }

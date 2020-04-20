@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewsFeedSpinnerComponent } from './news-feed-spinner.component';
+import { UploadSpinnerComponent } from './upload-spinner.component';
 
-describe('NewsFeedSpinnerComponent', () => {
-  let component: NewsFeedSpinnerComponent;
-  let fixture: ComponentFixture<NewsFeedSpinnerComponent>;
+describe('UploadSpinnerComponent', () => {
+  let component: UploadSpinnerComponent;
+  let fixture: ComponentFixture<UploadSpinnerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsFeedSpinnerComponent ]
+      declarations: [ UploadSpinnerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewsFeedSpinnerComponent);
+    fixture = TestBed.createComponent(UploadSpinnerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

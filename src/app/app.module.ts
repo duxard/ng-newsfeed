@@ -4,17 +4,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NewsFeedComponent } from './news-feed/news-feed.component';
-import { AddMessageFormComponent } from './add-message-form/add-message-form.component';
+import { CommentsFeedComponent } from './comments-feed/comments-feed.component';
+import { AddCommentFormComponent } from './add-comment-form/add-comment-form.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NewsFeedSpinnerComponent } from './news-feed-spinner/news-feed-spinner.component';
+import { UploadSpinnerComponent } from './upload-spinner/upload-spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewsFeedComponent,
-    AddMessageFormComponent,
-    NewsFeedSpinnerComponent
+    CommentsFeedComponent,
+    AddCommentFormComponent,
+    UploadSpinnerComponent
   ],
   imports: [
     BrowserModule,

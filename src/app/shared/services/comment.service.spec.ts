@@ -1,19 +1,19 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { NewsService } from './news.service';
-import { INews } from '../models/INews';
+import { CommentService } from './comment.service';
+import { IComment } from '../models/IComment';
 
-describe('NewsSevice', () => {
-  let newsService: NewsService;
+describe('CommentsSevice', () => {
+  let commentsService: CommentService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ HttpClientTestingModule ],
-      providers: [ NewsService ]
+      providers: [ CommentService ]
     });
 
-    newsService = TestBed.get(NewsService);
+    commentsService = TestBed.get(CommentService);
     httpMock = TestBed.get(HttpTestingController);
   });
 
@@ -22,7 +22,7 @@ describe('NewsSevice', () => {
   });
 
   it(`should retrieve data from REST endpoint by GET`, () => {
-    const dummyNews: INews[] = [
+    const dummyComments: IComment[] = [
       {
         "username": "name",
         "message": "lorem ipsum",
@@ -37,31 +37,31 @@ describe('NewsSevice', () => {
       }
     ];
 
-    newsService.fetchNews().subscribe(dataReceived => {
+    commentsService.fetchComments().subscribe(dataReceived => {
       console.log(dataReceived);
       expect(dataReceived.length).toBe(2);
-      expect(dataReceived).toEqual(dummyNews);
+      expect(dataReceived).toEqual(dummyComments);
     });
 
-    const request = httpMock.expectOne(`${newsService.apiBase}`);
+    const request = httpMock.expectOne(`${commentsService.apiBase}`);
     expect(request.request.method).toBe('GET');
-    request.flush(dummyNews);
+    request.flush(dummyComments);
   });
 
   it(`should post data to REST endpoint`, () => {
-    const dummyNews: INews = {
+    const dummyComments: IComment = {
       "username": "dummyName",
       "message": "lorem ipsum",
       "rating": 1,
       "date": new Date()
-    }
+    };
 
-    newsService.createNews(dummyNews).subscribe(dataReceived => {
+    commentsService.createComment(dummyComments).subscribe(dataReceived => {
       expect(dataReceived.username).toEqual('dummyName');
     });
 
-    const request = httpMock.expectOne(`${newsService.apiBase}`);
+    const request = httpMock.expectOne(`${commentsService.apiBase}`);
     expect(request.request.method).toBe('POST');
-    request.flush(dummyNews);
+    request.flush(dummyComments);
   });
 });

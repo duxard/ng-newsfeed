@@ -1,4 +1,4 @@
-export interface INews {
+export declare interface IComment {
   username: string;
   message: string;
   rating: number;

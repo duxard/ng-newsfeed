@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="addNewsForm" (ngSubmit)="submitForm()" novalidate>
+  <form [formGroup]="addCommentForm" (ngSubmit)="submitForm()" novalidate>
 
     <div class="form-group">
       <div class="col-sm-12">
@@ -7,7 +7,7 @@
         <input type="text"
                formControlName="username"
                maxlength="20" id="username"
-               class="form-control margin-bottom"
+               class="form-control mMarginBottom"
                autocomplete="off"
                required/>
       </div>
@@ -20,7 +20,7 @@
                   rows="8"
                   cols="80"
                   id="message"
-                  class="form-control margin-bottom"                    
+                  class="form-control mMarginBottom"
                   required>
         </textarea>
         <button type="submit" class="btn btn-primary">Submit</button>
